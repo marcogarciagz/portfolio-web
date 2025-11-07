@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Marco Garcia - Data Engineer</title>
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+  <link as="style" href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;700;900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1193d4",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101c22",
+          },
+          fontFamily: {
+            display: ["Inter"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Reusable utility so all section body text matches -->
+  <style type="text/tailwindcss">
+    @layer components {
+      .section-copy {
+        @apply text-lg leading-8 text-slate-600 dark:text-slate-400;
+      }
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-20 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between whitespace-nowrap border-b border-slate-200/50 dark:border-slate-800/50 px-4 sm:px-6 lg:px-8 py-3">
+      <div class="flex items-center gap-3">
+        <a class="flex items-center gap-3" href="#home">
+          <h2 class="text-xl font-bold text-slate-900 dark:text-white">MG</h2>
+        </a>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6">
+        <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#about">About</a>
+        <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#experience">Experience</a>
+        <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#projects">Projects</a>
+        <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#skills">Skills</a>
+        <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#certifications">Certifications</a>
+        <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#sports">Sports</a>
+        <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#contact">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <!-- Social icons (hidden on mobile, shown md+) -->
+        <div class="hidden md:flex items-center gap-2">
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/marcogarciagz/"
+             class="group inline-flex items-center justify-center h-9 w-9 rounded-lg bg-slate-900/90 text-white hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0A66C2] transition"
+             aria-label="LinkedIn" rel="me noopener noreferrer" target="_blank">
+            <img src="icons/linkedin.svg" alt=""
+                 class="h-4 w-4 filter brightness-0 invert transition
+                        group-hover:filter-none motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-110"/>
+          </a>
+          <!-- Medium -->
+          <a href="https://medium.com/@marcogarciagz"
+             class="group inline-flex items-center justify-center h-9 w-9 rounded-lg bg-slate-900/90 text-white hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-[#12100E] transition"
+             aria-label="Medium" rel="me noopener noreferrer" target="_blank">
+            <img src="icons/medium.svg" alt=""
+                 class="h-4 w-4 filter brightness-0 invert transition
+                        group-hover:filter-none motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-110"/>
+          </a>
+          <!-- GitHub -->
+          <a href="https://github.com/marcogarciagz"
+             class="group inline-flex items-center justify-center h-9 w-9 rounded-lg bg-slate-900/90 text-white hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-[#181717] transition"
+             aria-label="GitHub" rel="me noopener noreferrer" target="_blank">
+            <img src="icons/github.svg" alt=""
+                 class="h-4 w-4 filter brightness-0 invert transition
+                        group-hover:filter-none motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-110"/>
+          </a>
+          <!-- Strava -->
+          <a href="https://www.strava.com/athletes/138353084"
+             class="group inline-flex items-center justify-center h-9 w-9 rounded-lg bg-slate-900/90 text-white hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-[#FC4C02] transition"
+             aria-label="Strava" rel="me noopener noreferrer" target="_blank">
+            <img src="icons/strava.svg" alt=""
+                 class="h-4 w-4 filter brightness-0 invert transition
+                        group-hover:filter-none motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-110"/>
+          </a>
+        </div>
+
+        <!-- Avatar -->
+        <div class="h-10 w-10 aspect-square rounded-full bg-cover bg-center" style='background-image: url("face-photo.png");'></div>
+
+        <!-- Mobile menu -->
+        <button class="md:hidden text-slate-800 dark:text-slate-200" aria-label="Open menu">
+          <span class="material-symbols-outlined"> menu </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <!-- Hero -->
+    <section id="home" class="relative flex min-h-[calc(100vh-69px)] items-center justify-center bg-cover bg-center py-24 px-4 sm:px-6 lg:px-8" style='background-image: linear-gradient(to top, rgba(16, 28, 34, 1) 0%, rgba(16, 28, 34, 0) 50%), url("images/background-mountains.jpeg");'>
+      <div class="absolute inset-0 bg-background-light/20 dark:bg-background-dark/40"></div>
+      <div class="relative z-10 mx-auto max-w-4xl text-center text-white">
+        <h1 class="text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">Hi there! I'm Marco Garcia</h1>
+
+        <!-- Bigger first line -->
+        <p class="mt-4 text-2xl sm:text-3xl font-semibold leading-tight text-white">
+          Analytics Data Engineer | Sporty fueled by nature
+        </p>
+
+        <!-- Split into two paragraphs -->
+        <p class="mt-4 text-lg leading-8 text-slate-200">
+          Crafting scalable solutions in the cloud and turning raw data into meaningful impact.
+        </p>
+        <p class="mt-2 text-lg leading-8 text-slate-200">
+          Welcome to my personal corner!
+        </p>
+
+        <div class="mt-10 flex items-center justify-center gap-x-6">
+          <a class="rounded-lg bg-primary px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" href="#projects">
+            Explore Projects
+          </a>
+          <a class="text-base font-semibold leading-6 text-white" href="#contact">Contact Me <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-20">
+
+      <!-- About -->
+      <section id="about" class="scroll-mt-20 py-16 sm:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-center">
+          <div class="lg:col-span-1 flex justify-center">
+            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72 shadow-lg"
+                 style='background-image: url("images/personal-photo.png");'></div>
+          </div>
+
+          <div class="lg:col-span-2 space-y-6">
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">About Me</h2>
+
+            <div class="space-y-4 section-copy">
+              <p>I’m Marco, an Analytics Data Engineer driven by the curiosity of how data shapes decisions, products, and innovation.</p>
+              <p>I’m passionate about Data Engineering, Data Analytics, Data Science, Cloud Computing, Machine Learning, and Generative AI. I’m a lifelong learner with ambition, discipline and a real love for exploring new technologies and staying up to date as the industry evolves.</p>
+              <p>Outside the tech world, I fuel myself with travel and sports — I’ve visited 3 of the 7 continents, seen 1 of the New 7 Wonders of the World, played basketball for more than 10 years, now play padel, go hiking, run half marathons and enjoy cycling. Sports help me disconnect, find balance and bring fresh energy back to my work.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="py-16 sm:py-24">
+        <div class="mx-auto max-w-3xl">
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl text-center">Experience</h2>
+          <p class="mt-4 text-center section-copy">
+            I’ve had the chance to work in different industries, solving challenges across diverse ecosystems.
+            I’m always looking for new opportunities that allow me to grow, contribute, and build solutions that truly matter — both professionally and personally.
+          </p>
+          <div class="mt-8 border-l-2 border-primary/30 dark:border-primary/50">
+            <div class="relative pl-8 pb-8">
+              <div class="absolute -left-[11px] top-1 h-5 w-5 rounded-full bg-primary ring-8 ring-background-light dark:ring-background-dark"></div>
+              <p class="text-base font-semibold text-slate-900 dark:text-white">Software Engineer at Autexis</p>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Wohlen (Switzerland)</p>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Feb 2023 - Dec 2024</p>
+            </div>
+            <div class="relative pl-8 pb-8">
+              <div class="absolute -left-[11px] top-1 h-5 w-5 rounded-full bg-primary ring-8 ring-background-light dark:ring-background-dark"></div>
+              <p class="text-base font-semibold text-slate-900 dark:text-white">Data & Automation Specialist at Siemens</p>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Madrid (Spain)</p>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Feb 2022 - Feb 2023</p>
+            </div>
+            <div class="relative pl-8">
+              <div class="absolute -left-[11px] top-1 h-5 w-5 rounded-full bg-primary ring-8 ring-background-light dark:ring-background-dark"></div>
+              <p class="text-base font-semibold text-slate-900 dark:text-white">Logistics Engineer at Renault</p>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Palencia (Spain)</p>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Jan 2021 - Dec 2021</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="scroll-mt-20 py-16 sm:py-24">
+        <div class="mx-auto max-w-7xl">
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl text-center">Projects</h2>
+          <p class="mt-4 text-center section-copy max-w-3xl mx-auto">
+            The world evolves incredibly fast, and I love staying close to the edge. In my free time, I experiment with data projects — from analytics to engineering to machine learning — to explore new ideas, tools, and architectures.
+            You’re more than invited to have a look: every project is documented on Medium and versioned on GitHub.
+          </p>
+          <div class="mt-12 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="flex flex-col overflow-hidden rounded-xl bg-white dark:bg-slate-900 shadow-md transition hover:shadow-lg dark:hover:shadow-primary/20">
+              <div class="w-full bg-slate-200 dark:bg-slate-700 aspect-video"></div>
+              <div class="p-6">
+                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Scalable Data Pipeline for E-commerce Analytics</h3>
+                <p class="mt-2 section-copy">Designed and implemented a scalable data pipeline using Spark and Kafka to process large volumes of e-commerce data.</p>
+              </div>
+            </div>
+            <div class="flex flex-col overflow-hidden rounded-xl bg-white dark:bg-slate-900 shadow-md transition hover:shadow-lg dark:hover:shadow-primary/20">
+              <div class="w-full bg-slate-200 dark:bg-slate-700 aspect-video"></div>
+              <div class="p-6">
+                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Data Warehouse Optimization for Financial Reporting</h3>
+                <p class="mt-2 section-copy">Optimized a data warehouse using Snowflake to improve query performance and reduce reporting latency.</p>
+              </div>
+            </div>
+            <div class="flex flex-col overflow-hidden rounded-xl bg-white dark:bg-slate-900 shadow-md transition hover:shadow-lg dark:hover:shadow-primary/20">
+              <div class="w-full bg-slate-200 dark:bg-slate-700 aspect-video"></div>
+              <div class="p-6">
+                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Real-time Fraud Detection System</h3>
+                <p class="mt-2 section-copy">Developed a real-time fraud detection system using machine learning models deployed on AWS.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="scroll-mt-20 py-16 sm:py-24">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl text-center">Skills</h2>
+            <p class="mt-4 section-copy max-w-2xl mx-auto">
+              My core strengths revolve around Data Engineering, Cloud Computing and Databases. I design modern data architectures (Medallion, Data Warehouse, Data Lake) and implement them using both relational and non-relational technologies.
+            </p>
+          </div>
+
+          <div class="space-y-12">
+            <div class="bg-white/50 dark:bg-black/20 p-6 rounded-lg backdrop-blur-sm border border-gray-200 dark:border-gray-800">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Programming Languages</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+                <div class="flex items-center justify-between"><span class="font-medium">Python</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+                <div class="flex items-center justify-between"><span class="font-medium">SQL</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span></div></div>
+                <div class="flex items-center justify-between"><span class="font-medium">Java</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+              </div>
+            </div>
+
+            <div class="bg-white/50 dark:bg-black/20 p-6 rounded-lg backdrop-blur-sm border border-gray-200 dark:border-gray-800">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Relational Databases</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+                <div class="flex items-center justify-between"><span class="font-medium">PostgreSQL</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+                <div class="flex items-center justify-between"><span class="font-medium">MySQL</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+                <div class="flex items-center justify-between"><span class="font-medium">Microsoft SQL</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+              </div>
+            </div>
+
+            <div class="bg-white/50 dark:bg-black/20 p-6 rounded-lg backdrop-blur-sm border border-gray-200 dark:border-gray-800">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">NoSQL Databases</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+                <div class="flex items-center justify-between"><span class="font-medium">MongoDB</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+                <div class="flex items-center justify-between"><span class="font-medium">Neo4J</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+                <div class="flex items-center justify-between"><span class="font-medium">Elasticsearch</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+              </div>
+            </div>
+
+            <div class="bg-white/50 dark:bg-black/20 p-6 rounded-lg backdrop-blur-sm border border-gray-200 dark:border-gray-800">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Cloud Platforms</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+                <div class="flex items-center justify-between"><span class="font-medium">AWS</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+                <div class="flex items-center justify-between"><span class="font-medium">Azure</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+                <div class="flex items-center justify-between"><span class="font-medium">Google Cloud</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+              </div>
+            </div>
+
+            <div class="bg-white/50 dark:bg-black/20 p-6 rounded-lg backdrop-blur-sm border border-gray-200 dark:border-gray-800">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Data Processing</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+                <div class="flex items-center justify-between"><span class="font-medium">Apache Kafka</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+                <div class="flex items-center justify-between"><span class="font-medium">Apache Airflow</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+                <div class="flex items-center justify-between"><span class="font-medium">dbt</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+                <div class="flex items-center justify-between"><span class="font-medium">Apache Flink</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+                <div class="flex items-center justify-between"><span class="font-medium">Dataiku</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+              </div>
+            </div>
+
+            <div class="bg-white/50 dark:bg-black/20 p-6 rounded-lg backdrop-blur-sm border border-gray-200 dark:border-gray-800">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Data Warehouse</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+                <div class="flex items-center justify-between"><span class="font-medium">Snowflake</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+                <div class="flex items-center justify-between"><span class="font-medium">Amazon Redshift</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+                <div class="flex items-center justify-between"><span class="font-medium">BigQuery</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+                <div class="flex items-center justify-between"><span class="font-medium">Azure Synapse</span><div class="flex items-center gap-1"><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-primary rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span><span class="h-2.5 w-2.5 bg-gray-300 dark:bg-gray-700 rounded-full"></span></div></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Certifications (mosaic with links) -->
+      <section id="certifications" class="scroll-mt-20 py-16 sm:py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl text-center">Certifications</h2>
+          <p class="mt-4 text-center section-copy max-w-3xl mx-auto">
+            I hold official and verified certifications that reflect my commitment to mastery.
+            Setting clear goals keeps me motivated — certifications help me challenge myself, stay disciplined, and keep learning.
+          </p>
+
+          <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+
+            <!-- AWS Certified AI Practitioner -->
+            <figure class="group rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white dark:bg-slate-900/40 p-4 shadow-sm hover:shadow-md transition">
+              <a href="https://www.credly.com/badges/73320bc0-3f3a-4194-b43c-3208eaad4cce/linked_in_profile" target="_blank" rel="noopener noreferrer" class="block focus:outline-none focus:ring-2 focus:ring-primary rounded-lg">
+                <div class="mx-auto h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+                  <img src="images/certs/aws-certified-ai-practitioner.webp" alt="AWS Certified AI Practitioner – Foundational badge" class="h-full w-full object-contain transition-transform duration-200 group-hover:scale-105" loading="lazy" width="256" height="256" />
+                </div>
+                <figcaption class="mt-4 text-center">
+                  <h3 class="text-sm font-semibold text-slate-900 dark:text-white">AWS Certified AI Practitioner</h3>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">2025</p>
+                </figcaption>
+              </a>
+            </figure>
+
+            <!-- Microsoft Certified: Azure Data Fundamentals -->
+            <figure class="group rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white dark:bg-slate-900/40 p-4 shadow-sm hover:shadow-md transition">
+              <a href="https://learn.microsoft.com/en-us/users/MarcoGarca-7608/credentials/98C247FC2BDFCFA5?ref=https%3A%2F%2Fwww.linkedin.com%2F" target="_blank" rel="noopener noreferrer" class="block focus:outline-none focus:ring-2 focus:ring-primary rounded-lg">
+                <div class="mx-auto h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+                  <img src="images/certs/azure-data-fundamentals.webp" alt="Microsoft Certified: Azure Data Fundamentals badge" class="h-full w-full object-contain transition-transform duration-200 group-hover:scale-105" loading="lazy" width="256" height="256" />
+                </div>
+                <figcaption class="mt-4 text-center">
+                  <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Microsoft Certified: Azure Data Fundamentals</h3>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">2025</p>
+                </figcaption>
+              </a>
+            </figure>
+
+            <!-- Astronomer Airflow 3 Fundamentals -->
+            <figure class="group rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white dark:bg-slate-900/40 p-4 shadow-sm hover:shadow-md transition">
+              <a href="https://www.credly.com/badges/916d64e7-3924-44e3-b01a-9267ba21cc58/linked_in_profile" target="_blank" rel="noopener noreferrer" class="block focus:outline-none focus:ring-2 focus:ring-primary rounded-lg">
+                <div class="mx-auto h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+                  <img src="images/certs/astronomer-airflow-3.webp" alt="Astronomer Certification for Apache Airflow 3 Fundamentals badge" class="h-full w-full object-contain transition-transform duration-200 group-hover:scale-105" loading="lazy" width="256" height="256" />
+                </div>
+                <figcaption class="mt-4 text-center">
+                  <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Astronomer Certification for Apache Airflow 3 Fundamentals</h3>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">2024</p>
+                </figcaption>
+              </a>
+            </figure>
+
+            <!-- Astronomer DAG Authoring for Apache Airflow 3 -->
+            <figure class="group rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white dark:bg-slate-900/40 p-4 shadow-sm hover:shadow-md transition">
+              <a href="https://www.credly.com/badges/8261b298-2b7a-4e8d-8da3-a07a50967f4d/linked_in_profile" target="_blank" rel="noopener noreferrer" class="block focus:outline-none focus:ring-2 focus:ring-primary rounded-lg">
+                <div class="mx-auto h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+                  <img src="images/certs/astronomer-dag-authoring-airflow-3.webp" alt="Astronomer Certification DAG Authoring for Apache Airflow 3 badge" class="h-full w-full object-contain transition-transform duration-200 group-hover:scale-105" loading="lazy" width="256" height="256" />
+                </div>
+                <figcaption class="mt-4 text-center">
+                  <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Astronomer Certification DAG Authoring for Apache Airflow 3</h3>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">2024</p>
+                </figcaption>
+              </a>
+            </figure>
+
+            <!-- Professional Scrum Master I -->
+            <figure class="group rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white dark:bg-slate-900/40 p-4 shadow-sm hover:shadow-md transition">
+              <a href="https://www.credly.com/badges/1e8e2cdf-7599-4096-a4d7-0136bb87fe2a/linked_in_profile" target="_blank" rel="noopener noreferrer" class="block focus:outline-none focus:ring-2 focus:ring-primary rounded-lg">
+                <div class="mx-auto h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+                  <img src="images/certs/professional-scrum-master.webp" alt="Professional Scrum Master I badge" class="h-full w-full object-contain transition-transform duration-200 group-hover:scale-105" loading="lazy" width="256" height="256" />
+                </div>
+                <figcaption class="mt-4 text-center">
+                  <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Professional Scrum Master</h3>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">2024</p>
+                </figcaption>
+              </a>
+            </figure>
+
+            <!-- Neo4j Certified Professional -->
+            <figure class="group rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white dark:bg-slate-900/40 p-4 shadow-sm hover:shadow-md transition">
+              <a href="https://graphacademy.neo4j.com/c/19ee3b5d-1abe-4f80-bfc0-2052458e8ab9/" target="_blank" rel="noopener noreferrer" class="block focus:outline-none focus:ring-2 focus:ring-primary rounded-lg">
+                <div class="mx-auto h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+                  <img src="images/certs/neo4j-certified-professional.webp" alt="Neo4j Certified Professional badge" class="h-full w-full object-contain transition-transform duration-200 group-hover:scale-105" loading="lazy" width="256" height="256" />
+                </div>
+                <figcaption class="mt-4 text-center">
+                  <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Neo4j Certified Professional</h3>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">2024</p>
+                </figcaption>
+              </a>
+            </figure>
+
+            <!-- Dataiku Advanced Designer -->
+            <figure class="group rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white dark:bg-slate-900/40 p-4 shadow-sm hover:shadow-md transition">
+              <a href="https://verify.skilljar.com/c/3nksm277we8h" target="_blank" rel="noopener noreferrer" class="block focus:outline-none focus:ring-2 focus:ring-primary rounded-lg">
+                <div class="mx-auto h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+                  <img src="images/certs/dataiku-advanced-designer.webp" alt="Dataiku Advanced Designer badge" class="h-full w-full object-contain transition-transform duration-200 group-hover:scale-105" loading="lazy" width="256" height="256" />
+                </div>
+                <figcaption class="mt-4 text-center">
+                  <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Dataiku Advanced Designer</h3>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">2024</p>
+                </figcaption>
+              </a>
+            </figure>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Sports -->
+      <section id="sports" class="scroll-mt-20 py-16 sm:py-24">
+        <div class="mx-auto max-w-3xl">
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl text-center">Sports</h2>
+          <p class="mt-4 text-center section-copy">
+            Sports have always been my way to keep balance, disconnect, and recharge. I especially love running — and here are the races that have marked my path so far.
+          </p>
+
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Basketball -->
+            <div class="text-center">
+              <span class="material-symbols-outlined text-primary text-5xl">sports_basketball</span>
+              <h3 class="mt-2 text-lg font-semibold text-slate-900 dark:text-white">Basketball</h3>
+              <p class="mt-1 section-copy">Played for 10+ years — still a big fan.</p>
+            </div>
+
+            <!-- Running -->
+            <div class="text-center">
+              <span class="material-symbols-outlined text-primary text-5xl">directions_run</span>
+              <h3 class="mt-2 text-lg font-semibold text-slate-900 dark:text-white">Running</h3>
+              <p class="mt-1 section-copy">Regular runner fueled by nature.</p>
+
+              <!-- Running race cards (non-clickable) -->
+              <div class="mt-8 grid grid-cols-1 gap-6 text-left">
+                
+                <!-- Wizz Air Rome Half Marathon (Italy) -->
+                <div class="group rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/70 dark:bg-slate-900/40 p-4 shadow-sm hover:shadow-md transition hover:border-primary/50 cursor-default transform motion-safe:hover:-translate-y-0.5">
+                  <div class="flex items-start gap-4">
+                    <img src="icons/flags/it.svg" alt="Italy flag"
+                         class="h-10 w-10 rounded-md ring-1 ring-slate-200 dark:ring-slate-800 object-cover" loading="lazy" width="40" height="40" />
+                    <div class="min-w-0">
+                      <h4 class="font-semibold text-slate-900 dark:text-white">
+                        Wizz Air Rome Half Marathon
+                      </h4>
+                      <div class="mt-1 flex flex-wrap items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                        <span class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800/60 px-2 py-0.5">
+                          <span class="material-symbols-outlined text-base">calendar_month</span> 2025
+                        </span>
+                        <span class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800/60 px-2 py-0.5">
+                          <span class="material-symbols-outlined text-base">location_on</span> Rome, IT
+                        </span>
+                        <span class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800/60 px-2 py-0.5">
+                          <span class="material-symbols-outlined text-base">straighten</span> 21.1 km
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Laboral Kutxa San Sebastián Half Marathon (Spain) -->
+                <div class="group rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/70 dark:bg-slate-900/40 p-4 shadow-sm hover:shadow-md transition hover:border-primary/50 cursor-default transform motion-safe:hover:-translate-y-0.5">
+                  <div class="flex items-start gap-4">
+                    <img src="icons/flags/es.svg" alt="Spain flag"
+                         class="h-10 w-10 rounded-md ring-1 ring-slate-200 dark:ring-slate-800 object-cover" loading="lazy" width="40" height="40" />
+                    <div class="min-w-0">
+                      <h4 class="font-semibold text-slate-900 dark:text-white">
+                        Laboral Kutxa San Sebastián Half Marathon
+                      </h4>
+                      <div class="mt-1 flex flex-wrap items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                        <span class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800/60 px-2 py-0.5">
+                          <span class="material-symbols-outlined text-base">calendar_month</span> 2024
+                        </span>
+                        <span class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800/60 px-2 py-0.5">
+                          <span class="material-symbols-outlined text-base">location_on</span> Donostia / San Sebastián, ES
+                        </span>
+                        <span class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800/60 px-2 py-0.5">
+                          <span class="material-symbols-outlined text-base">straighten</span> 21.1 km
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Swiss City Luzern Half Marathon (Switzerland) -->
+                <div class="group rounded-xl border border-slate-200/70 dark:border-slate-800/70 bg-white/70 dark:bg-slate-900/40 p-4 shadow-sm hover:shadow-md transition hover:border-primary/50 cursor-default transform motion-safe:hover:-translate-y-0.5">
+                  <div class="flex items-start gap-4">
+                    <img src="icons/flags/ch.svg" alt="Switzerland flag"
+                         class="h-10 w-10 rounded-md ring-1 ring-slate-200 dark:ring-slate-800 object-cover" loading="lazy" width="40" height="40" />
+                    <div class="min-w-0">
+                      <h4 class="font-semibold text-slate-900 dark:text-white">
+                        Swiss City Luzern Half Marathon
+                      </h4>
+                      <div class="mt-1 flex flex-wrap items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                        <span class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800/60 px-2 py-0.5">
+                          <span class="material-symbols-outlined text-base">calendar_month</span> 2023
+                        </span>
+                        <span class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800/60 px-2 py-0.5">
+                          <span class="material-symbols-outlined text-base">location_on</span> Luzern, CH
+                        </span>
+                        <span class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800/60 px-2 py-0.5">
+                          <span class="material-symbols-outlined text-base">straighten</span> 21.1 km
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>              
+
+              </div>
+            </div>
+
+            <!-- Hiking & Cycling -->
+            <div class="text-center">
+              <span class="material-symbols-outlined text-primary text-5xl">hiking</span>
+              <h3 class="mt-2 text-lg font-semibold text-slate-900 dark:text-white">Hiking & Cycling</h3>
+              <p class="mt-1 section-copy">Nature, trails, and weekend rides.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="scroll-mt-20 py-16 sm:py-24">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Get in Touch</h2>
+          <p class="mt-4 section-copy">
+            This journey has just begun — and I’m excited for what’s coming next.
+            If you believe we could build something great together, I’d be more than happy to connect.
+            Reach out through whatever channel you prefer.
+          </p>
+          <p class="mt-4 section-copy">
+            <strong>Are you willing to join me?</strong> 💡
+          </p>
+
+          <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <!-- Email -->
+            <a href="mailto:marcogarciagz97@gmail.com"
+               class="inline-flex items-center gap-2 rounded-lg bg-slate-900 text-white px-5 py-3 text-base font-semibold shadow-sm hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true">
+                <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2v.01L12 12 4 6.01V6h16ZM4 18V8l8 6 8-6v10H4Z"/>
+              </svg>
+              Email Me
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/marcogarciagz/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 rounded-lg bg-slate-900 text-white px-5 py-3 text-base font-semibold shadow-sm hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+              <img src="icons/linkedin.svg" alt="" aria-hidden="true"
+                   class="h-4 w-4 filter brightness-0 invert transition hover:filter-none motion-safe:hover:-translate-y-0.5 motion-safe:hover:scale-110"/>
+              LinkedIn
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/marcogarciagz" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 rounded-lg bg-slate-900 text-white px-5 py-3 text-base font-semibold shadow-sm hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+              <img src="icons/github.svg" alt="" aria-hidden="true"
+                   class="h-4 w-4 filter brightness-0 invert transition hover:filter-none motion-safe:hover:-translate-y-0.5 motion-safe:hover:scale-110"/>
+              GitHub
+            </a>
+
+            <!-- Medium -->
+            <a href="https://medium.com/@marcogarciagz" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 rounded-lg bg-slate-900 text-white px-5 py-3 text-base font-semibold shadow-sm hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+              <img src="icons/medium.svg" alt="" aria-hidden="true"
+                   class="h-4 w-4 filter brightness-0 invert transition hover:filter-none motion-safe:hover:-translate-y-0.5 motion-safe:hover:scale-110"/>
+              Medium
+            </a>
+
+            <!-- Strava -->
+            <a href="https://www.strava.com/athletes/138353084" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 rounded-lg bg-slate-900 text-white px-5 py-3 text-base font-semibold shadow-sm hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+              <img src="icons/strava.svg" alt="" aria-hidden="true"
+                   class="h-4 w-4 filter brightness-0 invert transition hover:filter-none motion-safe:hover:-translate-y-0.5 motion-safe:hover:scale-110"/>
+              Strava
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-100 dark:bg-slate-900/50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-slate-500 dark:text-slate-400">
+      <p>© 2024 Marco Garcia. All Rights Reserved.</p>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
