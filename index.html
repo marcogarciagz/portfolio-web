@@ -853,7 +853,7 @@
         /* ─── Skills ─── */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
         }
 
@@ -878,48 +878,59 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .skill-list {
+        /* Logo tile grid */
+        .skill-logo-grid {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             gap: 0.75rem;
         }
 
-        .skill-item {
+        .skill-logo-item {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: 0.5rem;
+            padding: 0.85rem 1rem;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            min-width: 80px;
+            flex: 1 1 80px;
+            max-width: 110px;
+            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            cursor: default;
         }
 
-        .skill-name {
-            font-size: 0.85rem;
-            min-width: 110px;
-            color: var(--text);
+        .skill-logo-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px var(--accent-glow);
         }
 
-        .skill-bar-wrap {
-            flex: 1;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 2px;
-            overflow: hidden;
+        .skill-logo-item img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            /* keep coloured logos as-is; gracefully show alt text if missing */
         }
 
-        .skill-bar {
-            height: 100%;
-            border-radius: 2px;
-            background: linear-gradient(90deg, var(--accent), rgba(0, 229, 255, 0.4));
-            width: 0;
-            transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 0 8px var(--accent-glow);
-        }
-
-        .skill-pct {
+        .skill-logo-name {
             font-family: var(--font-mono);
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--muted);
-            min-width: 30px;
-            text-align: right;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
         }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
 
         /* ─── Certifications ─── */
         .certs-grid {
@@ -1294,20 +1305,20 @@
         <div class="section-inner">
             <div class="stats-bar reveal">
                 <div class="stat">
-                    <div class="stat-num counter" data-target="3">0</div>
+                    <div class="stat-num counter" data-target="5">0</div>
                     <div class="stat-label">Years Experience</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-num counter" data-target="14">0</div>
+                    <div class="stat-num counter" data-target="12">0</div>
                     <div class="stat-label">Certifications</div>
                 </div>
                 <div class="stat">
                     <div class="stat-num counter" data-target="3">0</div>
-                    <div class="stat-label">Half Marathons</div>
+                    <div class="stat-label">Industries</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-num counter" data-target="3">0</div>
-                    <div class="stat-label">Continents Visited</div>
+                    <div class="stat-num counter" data-target="15">0</div>
+                    <div class="stat-label">Technologies</div>
                 </div>
             </div>
         </div>
@@ -1495,125 +1506,92 @@
             </div>
             <div class="skills-grid">
 
+                <!-- Programming Languages -->
                 <div class="skill-category reveal">
                     <div class="skill-cat-title">Programming Languages</div>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">Python</span>
-                            <div class="skill-bar-wrap">
-                                <div class="skill-bar" data-w="80"></div>
-                            </div>
-                            <span class="skill-pct">80%</span>
+                    <div class="skill-logo-grid">
+                        <div class="skill-logo-item">
+                            <img src="icons/frameworks/python.webp" alt="Python" />
+                            <span class="skill-logo-name">Python</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">SQL</span>
-                            <div class="skill-bar-wrap">
-                                <div class="skill-bar" data-w="100"></div>
-                            </div>
-                            <span class="skill-pct">100%</span>
+                        <div class="skill-logo-item">
+                            <img src="icons/frameworks/sql.webp" alt="SQL" />
+                            <span class="skill-logo-name">SQL</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Java</span>
-                            <div class="skill-bar-wrap">
-                                <div class="skill-bar" data-w="60"></div>
-                            </div>
-                            <span class="skill-pct">60%</span>
+                        <div class="skill-logo-item">
+                            <img src="icons/frameworks/linux.webp" alt="Linux" />
+                            <span class="skill-logo-name">Linux</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- Cloud Platforms -->
                 <div class="skill-category reveal" style="transition-delay:0.1s;">
                     <div class="skill-cat-title">Cloud Platforms</div>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">AWS</span>
-                            <div class="skill-bar-wrap">
-                                <div class="skill-bar" data-w="80"></div>
-                            </div>
-                            <span class="skill-pct">80%</span>
+                    <div class="skill-logo-grid">
+                        <div class="skill-logo-item">
+                            <img src="icons/frameworks/aws.webp" alt="AWS" />
+                            <span class="skill-logo-name">AWS</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Azure</span>
-                            <div class="skill-bar-wrap">
-                                <div class="skill-bar" data-w="60"></div>
-                            </div>
-                            <span class="skill-pct">60%</span>
+                        <div class="skill-logo-item">
+                            <img src="icons/frameworks/azure.webp" alt="Azure" />
+                            <span class="skill-logo-name">Azure</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Google Cloud</span>
-                            <div class="skill-bar-wrap">
-                                <div class="skill-bar" data-w="60"></div>
-                            </div>
-                            <span class="skill-pct">60%</span>
+                        <div class="skill-logo-item">
+                            <img src="icons/frameworks/databricks.webp" alt="Databricks" />
+                            <span class="skill-logo-name">Databricks</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- Data Processing -->
                 <div class="skill-category reveal" style="transition-delay:0.15s;">
                     <div class="skill-cat-title">Data Processing</div>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">Apache Kafka</span>
-                            <div class="skill-bar-wrap">
-                                <div class="skill-bar" data-w="80"></div>
-                            </div>
-                            <span class="skill-pct">80%</span>
+                    <div class="skill-logo-grid">
+                        <div class="skill-logo-item">
+                            <img src="icons/frameworks/kafka.webp" alt="Apache Kafka" />
+                            <span class="skill-logo-name">Kafka</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Apache Airflow</span>
-                            <div class="skill-bar-wrap">
-                                <div class="skill-bar" data-w="80"></div>
-                            </div>
-                            <span class="skill-pct">80%</span>
+                        <div class="skill-logo-item">
+                            <img src="icons/frameworks/airflow.webp" alt="Apache Airflow" />
+                            <span class="skill-logo-name">Airflow</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">dbt</span>
-                            <div class="skill-bar-wrap">
-                                <div class="skill-bar" data-w="80"></div>
-                            </div>
-                            <span class="skill-pct">80%</span>
+                        <div class="skill-logo-item">
+                            <img src="icons/frameworks/dbt.webp" alt="dbt" />
+                            <span class="skill-logo-name">dbt</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Apache Flink</span>
-                            <div class="skill-bar-wrap">
-                                <div class="skill-bar" data-w="60"></div>
-                            </div>
-                            <span class="skill-pct">60%</span>
+                        <div class="skill-logo-item">
+                            <img src="icons/frameworks/spark.webp" alt="Apache Spark" />
+                            <span class="skill-logo-name">Spark</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- Data Warehouse & Databases -->
                 <div class="skill-category reveal" style="transition-delay:0.2s;">
                     <div class="skill-cat-title">Data Warehouse &amp; Databases</div>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">Snowflake</span>
-                            <div class="skill-bar-wrap">
-                                <div class="skill-bar" data-w="80"></div>
-                            </div>
-                            <span class="skill-pct">80%</span>
+                    <div class="skill-logo-grid">
+                        <div class="skill-logo-item">
+                            <img src="icons/frameworks/snowflake.webp" alt="Snowflake" />
+                            <span class="skill-logo-name">Snowflake</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Amazon Redshift</span>
-                            <div class="skill-bar-wrap">
-                                <div class="skill-bar" data-w="80"></div>
-                            </div>
-                            <span class="skill-pct">80%</span>
+                        <div class="skill-logo-item">
+                            <img src="icons/frameworks/redshift.webp" alt="Amazon Redshift" />
+                            <span class="skill-logo-name">Redshift</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">PostgreSQL</span>
-                            <div class="skill-bar-wrap">
-                                <div class="skill-bar" data-w="80"></div>
-                            </div>
-                            <span class="skill-pct">80%</span>
+                        <div class="skill-logo-item">
+                            <img src="icons/frameworks/synapse.webp" alt="Azure Synapse" />
+                            <span class="skill-logo-name">Synapse</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">MongoDB</span>
-                            <div class="skill-bar-wrap">
-                                <div class="skill-bar" data-w="80"></div>
-                            </div>
-                            <span class="skill-pct">80%</span>
+                        <div class="skill-logo-item">
+                            <img src="icons/frameworks/postgresql.webp" alt="PostgreSQL" />
+                            <span class="skill-logo-name">PostgreSQL</span>
                         </div>
+                        <div class="skill-logo-item">
+                            <img src="icons/frameworks/mysql.webp" alt="MySQL" />
+                            <span class="skill-logo-name">MySQL</span>
+                        </div>
+
                     </div>
                 </div>
 
@@ -1643,7 +1621,7 @@
                             onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 80 80\'><rect width=\'80\' height=\'80\' rx=\'12\' fill=\'%231a2540\'/>%3Ctext x=\'50%25\' y=\'55%25\' font-size=\'32\' text-anchor=\'middle\' dominant-baseline=\'middle\'%3E🏅%3C/text%3E%3C/svg%3E'" />
                     </div>
                     <div class="cert-name">Databricks Certified Associate Developer for Apache Spark</div>
-                    <div class="cert-year">2025</div>
+                    <div class="cert-year">2026</div>
                     <svg class="cert-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M7 17 17 7M7 7h10v10" />
                     </svg>
@@ -1707,7 +1685,7 @@
                             onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 80 80\'><rect width=\'80\' height=\'80\' rx=\'12\' fill=\'%231a2540\'/>%3Ctext x=\'50%25\' y=\'55%25\' font-size=\'32\' text-anchor=\'middle\' dominant-baseline=\'middle\'%3E🏅%3C/text%3E%3C/svg%3E'" />
                     </div>
                     <div class="cert-name">Microsoft Certified: Power BI Data Analyst Associate</div>
-                    <div class="cert-year">2025</div>
+                    <div class="cert-year">2024</div>
                     <svg class="cert-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M7 17 17 7M7 7h10v10" />
                     </svg>
@@ -1731,7 +1709,7 @@
                             onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 80 80\'><rect width=\'80\' height=\'80\' rx=\'12\' fill=\'%231a2540\'/>%3Ctext x=\'50%25\' y=\'55%25\' font-size=\'32\' text-anchor=\'middle\' dominant-baseline=\'middle\'%3E🏅%3C/text%3E%3C/svg%3E'" />
                     </div>
                     <div class="cert-name">Astronomer Certification for Apache Airflow 3 Fundamentals</div>
-                    <div class="cert-year">2025</div>
+                    <div class="cert-year">2024</div>
                     <svg class="cert-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M7 17 17 7M7 7h10v10" />
                     </svg>
@@ -1744,19 +1722,7 @@
                             onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 80 80\'><rect width=\'80\' height=\'80\' rx=\'12\' fill=\'%231a2540\'/>%3Ctext x=\'50%25\' y=\'55%25\' font-size=\'32\' text-anchor=\'middle\' dominant-baseline=\'middle\'%3E🏅%3C/text%3E%3C/svg%3E'" />
                     </div>
                     <div class="cert-name">Astronomer Certification DAG Authoring for Apache Airflow 3</div>
-                    <div class="cert-year">2025</div>
-                    <svg class="cert-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M7 17 17 7M7 7h10v10" />
-                    </svg>
-                </a>
-
-                <a href="https://graphacademy.neo4j.com/c/19ee3b5d-1abe-4f80-bfc0-2052458e8ab9/" target="_blank"
-                    rel="noopener" class="cert-card reveal" style="transition-delay:0.2s;">
-                    <div class="cert-img-wrap"><img src="images/certs/neo4j-certified-professional.webp" alt="Neo4j"
-                            onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 80 80\'><rect width=\'80\' height=\'80\' rx=\'12\' fill=\'%231a2540\'/>%3Ctext x=\'50%25\' y=\'55%25\' font-size=\'32\' text-anchor=\'middle\' dominant-baseline=\'middle\'%3E🏅%3C/text%3E%3C/svg%3E'" />
-                    </div>
-                    <div class="cert-name">Neo4j Certified Professional</div>
-                    <div class="cert-year">2025</div>
+                    <div class="cert-year">2024</div>
                     <svg class="cert-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M7 17 17 7M7 7h10v10" />
                     </svg>
@@ -1769,18 +1735,6 @@
                             onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 80 80\'><rect width=\'80\' height=\'80\' rx=\'12\' fill=\'%231a2540\'/>%3Ctext x=\'50%25\' y=\'55%25\' font-size=\'32\' text-anchor=\'middle\' dominant-baseline=\'middle\'%3E🏅%3C/text%3E%3C/svg%3E'" />
                     </div>
                     <div class="cert-name">Microsoft Certified: Fabric Analytics Engineer Associate</div>
-                    <div class="cert-year">2024</div>
-                    <svg class="cert-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M7 17 17 7M7 7h10v10" />
-                    </svg>
-                </a>
-
-                <a href="https://verify.skilljar.com/c/3nksm277we8h" target="_blank" rel="noopener"
-                    class="cert-card reveal" style="transition-delay:0.3s;">
-                    <div class="cert-img-wrap"><img src="images/certs/dataiku-advanced-designer.webp" alt="Dataiku"
-                            onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 80 80\'><rect width=\'80\' height=\'80\' rx=\'12\' fill=\'%231a2540\'/>%3Ctext x=\'50%25\' y=\'55%25\' font-size=\'32\' text-anchor=\'middle\' dominant-baseline=\'middle\'%3E🏅%3C/text%3E%3C/svg%3E'" />
-                    </div>
-                    <div class="cert-name">Dataiku Advanced Designer</div>
                     <div class="cert-year">2024</div>
                     <svg class="cert-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M7 17 17 7M7 7h10v10" />
