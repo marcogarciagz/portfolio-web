@@ -1309,7 +1309,7 @@
                     <div class="stat-label">Years Experience</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-num counter" data-target="12">0</div>
+                    <div class="stat-num counter" data-target="10">0</div>
                     <div class="stat-label">Certifications</div>
                 </div>
                 <div class="stat">
@@ -1380,14 +1380,9 @@
                     <div class="timeline-company">Autexis · Villmergen, Switzerland</div>
                 </div>
                 <div class="timeline-item reveal" style="transition-delay:0.1s;">
-                    <div class="timeline-period">Feb 2022 — Feb 2023</div>
+                    <div class="timeline-period">Feb 2021 — Feb 2023</div>
                     <div class="timeline-role">Data &amp; Automation Specialist</div>
                     <div class="timeline-company">Siemens · Madrid, Spain</div>
-                </div>
-                <div class="timeline-item reveal" style="transition-delay:0.2s;">
-                    <div class="timeline-period">Jan 2021 — Dec 2021</div>
-                    <div class="timeline-role">Logistics Engineer</div>
-                    <div class="timeline-company">Renault · Palencia, Spain</div>
                 </div>
             </div>
         </div>
@@ -1445,22 +1440,31 @@
                 <!-- Project 2 -->
                 <div class="project-card reveal" style="transition-delay:0.1s;">
                     <div class="project-thumb">
-                        <div class="project-thumb-placeholder">
-                            <svg width="48" height="48" fill="none" stroke="white" stroke-width="1.5"
-                                viewBox="0 0 24 24">
-                                <ellipse cx="12" cy="5" rx="9" ry="3" />
-                                <path
-                                    d="M3 5v6c0 1.657 4.03 3 9 3s9-1.343 9-3V5M3 11v6c0 1.657 4.03 3 9 3s9-1.343 9-3v-6" />
-                            </svg>
-                        </div>
+                        <img src="images/data-architecture.png" alt="SQL Data Warehouse medallion architecture"
+                            onerror="this.parentElement.innerHTML='<div class=\'project-thumb-placeholder\'><svg width=\'48\' height=\'48\' fill=\'none\' stroke=\'white\' stroke-width=\'1.5\' viewBox=\'0 0 24 24\'><path d=\'M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7C5 4 4 5 4 7Z\'/><path d=\'M15 4v3H9V4M12 10v7M8.5 13.5l3.5 3.5 3.5-3.5\'/></svg></div>'" />
                     </div>
                     <div class="project-body">
-                        <div class="label" style="margin-bottom:0.6rem; font-size:0.65rem;">Snowflake · dbt · BI</div>
-                        <h3 class="project-title">Data Warehouse Optimization for Financial Reporting</h3>
-                        <p class="project-desc">Optimized a data warehouse using Snowflake to improve query performance
-                            and significantly reduce reporting latency for financial stakeholders.</p>
+                        <div class="label" style="margin-bottom:0.6rem; font-size:0.65rem;">SQLServer · SQL</div>
+                        <h3 class="project-title">SQL Data Warehouse built on SQLServer</h3>
+                        <p class="project-desc">Optimized a data warehouse using SQLServer to improve query performance
+                            and significantly reduce reporting latency following a medallion architecture.</p>
                         <div class="project-links">
-                            <span class="project-link" style="opacity:0.45; cursor:default;">Coming soon</span>
+                            <a href="https://github.com/marcogarciagz/sql-data-warehouse" target="_blank" rel="noopener"
+                                class="project-link">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z" />
+                                </svg>
+                                GitHub
+                            </a>
+                            <a href="https://medium.com/@marcogarciagz/building-a-production-ready-stock-data-platform-on-azure-with-databricks-auto-loader-delta-lake-e3a09bc5fd4c"
+                                target="_blank" rel="noopener" class="project-link">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12Zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12Z" />
+                                </svg>
+                                Medium
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1806,7 +1810,7 @@
                             <img src="icons/flags/ch.svg" alt="Switzerland" class="race-flag"
                                 onerror="this.style.display='none'" />
                             <div class="race-info">
-                                <div class="race-name">Ochsner Sport Zürich Half Marathon</div>
+                                <div class="race-name">Oechsner Sport Zürich Half Marathon</div>
                                 <div class="race-meta">2026 · Zürich, CH · 21.1 km</div>
                             </div>
                         </div>
